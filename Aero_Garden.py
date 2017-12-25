@@ -53,8 +53,7 @@ def setup(hass, base_config):
     try:
         r = requests.post(apiurl,  data=auth_data, headers=headers)
         responce = r.json()
-        #userID =responce["code"]
-        userID = "3122" # debug
+        userID =responce["code"]
         device_url = "airGuid=" + encoded_mac + "&userID=" + str(userID)
         apiurl = str(host) + str(port) + str(QueryDeviceStatus)
         r = requests.post(apiurl,  data=str(device_url), headers=headers)
